@@ -1,0 +1,26 @@
+{
+  "name": "postman-contract-test-generator",
+  "version": "1.0.0",
+  "description": "When building APIs, a common need is to validate the shape of the requests and responses. You want to verify the implementation of the API matches the definition document. This is typically done through *contract tests*, which exercise required fields, optional fields, and things like query and path parameters.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@jordanwalsh23/postman-local-mock-server": "^0.0.5",
+    "@jordanwalsh23/postman-mock-builder": "^0.0.3",
+    "chai": "^4.3.7",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "mocha": "^10.2.0",
+    "newman": "^5.3.2"
+  },
+  "mocha": {
+    "timeout": "60000"
+  }
+}
