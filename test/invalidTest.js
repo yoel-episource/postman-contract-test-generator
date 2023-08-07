@@ -45,8 +45,6 @@ describe('Postman Contract Test Suite', () => {
         })
 
       test002MockServer.start(PORT)
-
-      test002MockServer.exportCollection('collections/test2.json')
       done()
     })
 
