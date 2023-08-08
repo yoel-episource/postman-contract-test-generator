@@ -1,0 +1,254 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.3",
+    "title": "Test Products API"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3555",
+      "description": "Test Server"
+    },
+    {
+      "url": "http://localhost:3556",
+      "description": "Test Server"
+    },
+    {
+      "url": "http://localhost:3557",
+      "description": "Test Server"
+    },
+    {
+      "url": "http://localhost:3558",
+      "description": "Test Server"
+    },
+    {
+      "url": "http://localhost:3559",
+      "description": "Test Server"
+    },
+    {
+      "url": "http://localhost:3560",
+      "description": "Test Server"
+    },
+    {
+      "url": "http://localhost:3561",
+      "description": "Test Server"
+    },
+    {
+      "url": "http://localhost:3562",
+      "description": "Test Server"
+    },
+    {
+      "url": "http://localhost:3563",
+      "description": "Test Server"
+    },
+    {
+      "url": "http://localhost:3564",
+      "description": "Test Server"
+    },
+    {
+      "url": "http://localhost:3565",
+      "description": "Test Server"
+    },
+    {
+      "url": "http://localhost:3566",
+      "description": "Test Server"
+    },
+    {
+      "url": "http://localhost:3567",
+      "description": "Test Server"
+    }
+  ],
+  "paths": {
+    "/api/products": {
+      "post": {
+        "summary": "Create a new product in the database",
+        "description": "Create a new product in the database",
+        "operationId": "createProduct",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [{
+          "in": "header",
+          "name": "x-mock-match-request-body",
+          "schema": {
+            "type": "boolean",
+            "default": true,
+            "example": true
+          },
+          "required": true
+        }],
+        "requestBody": {
+          "description": "Product information",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewProduct"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Product was created successfully",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "The URL of the new product that was just created."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewProduct"
+                }
+              }
+            },
+            "x-postman-variables": [
+              {
+                "type": "save",
+                "name": "productId",
+                "path": ".id"
+              }
+            ]
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status code of the error",
+            "example": "OK"
+          },
+          "message": {
+            "type": "string",
+            "description": "The message detailing what happened.",
+            "example": "The service did not work as expected."
+          }
+        }
+      },
+      "NewProduct": {
+        "type": "object",
+        "required": [
+          "name",
+          "description",
+          "model",
+          "sku",
+          "cost",
+          "imageUrl"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the Product",
+            "example": "Bose Noise Cancelling Over-Ear Headphones 700 (Black)",
+            "minLength": 3
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the Product",
+            "example": "Google Assistant and Amazon Alexa built in"
+          },
+          "model": {
+            "type": "string",
+            "description": "The model number of the Product",
+            "example": "794297-0100"
+          },
+          "sku": {
+            "type": "string",
+            "description": "The SKU of the Product",
+            "example": "394807"
+          },
+          "cost": {
+            "description": "The cost of the Product",
+            "type": "number",
+            "format": "float",
+            "example": 445
+          },
+          "imageUrl": {
+            "type": "string",
+            "description": "The URL to the image of the Product",
+            "format": "url",
+            "minLength": 3,
+            "example": "https://cdn.shopify.com/s/files/1/0024/9803/5810/products/394807-Product-0-I_d1664990-4dfb-462f-bb93-2fb469ed7d5d_800x800.jpg"
+          }
+        }
+      },
+      "ViewProduct": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "description",
+          "model",
+          "sku",
+          "cost",
+          "imageUrl"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "guid",
+            "description": "The ID of the Product",
+            "example": "a1805cde-f34f-4945-9fec-3e096fef4bdd"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the Product",
+            "example": "Bose Noise Cancelling Over-Ear Headphones 700 (Black)",
+            "minLength": 3
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the Product",
+            "example": "Google Assistant and Amazon Alexa built in"
+          },
+          "model": {
+            "type": "string",
+            "description": "The model number of the Product",
+            "example": "794297-0100"
+          },
+          "sku": {
+            "type": "string",
+            "description": "The SKU of the Product",
+            "example": "394807"
+          },
+          "cost": {
+            "description": "The cost of the Product",
+            "type": "number",
+            "format": "float",
+            "example": 445
+          },
+          "imageUrl": {
+            "type": "string",
+            "description": "The URL to the image of the Product",
+            "format": "url",
+            "minLength": 3,
+            "example": "https://cdn.shopify.com/s/files/1/0024/9803/5810/products/394807-Product-0-I_d1664990-4dfb-462f-bb93-2fb469ed7d5d_800x800.jpg"
+          }
+        }
+      }
+    }
+  }
+}
