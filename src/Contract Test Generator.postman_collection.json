@@ -1,10 +1,10 @@
 {
   "info": {
-    "_postman_id": "2c43b9a7-d757-4c36-8015-ceb40a9c281a",
-		"name": "Contract Test Generator",
-    "description": "This collection will automatically generate a series of tests against an OpenAPI3 definition that is within your API Builder in Postman.\n\n## Getting Started\n\nRead the documentation on the [Contract Testing Public Workspace](https://postman.postman.co/workspace/0bc7d76d-b582-45ba-b216-5da2c1d174a0) to get started.\n\n## Running this collection\n\nFirstly, make sure you have set up your environment variables by forking [this environment](https://postman.postman.co/workspace/Contract-Test-Generator~0bc7d76d-b582-45ba-b216-5da2c1d174a0/environment/18354885-1125d62a-154a-45a6-8b04-73073e8e4d16). Once completed, this collection can be run using the Postman collection runner, Postman CLI, or from Newman.\n\n## Changes - 2023-04-18\n\n**Added support for retrieving schema from a URL from CLI.**\n\nYou can now supply the `env-schemaUrl` property either via the environment or via the CLI. This will cause the collection to retrieve the API specification from the supplied URL instead of attempting to fetch it from the Postman workspace.\n\n## Support\n\nThis collection is maintained in GitHub by the Postman Solutions Engineering team. Please post an issue directly in [this GitHub project](https://github.com/postman-solutions-eng/postman-contract-test-generator) if you need support.",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
+    "_postman_id": "613f65f2-19a6-4f9f-9d8a-fe36a703ff5c",
+		"name": "(Generator) Contract Tests - OAS3",
+		"description": "This collection will automatically generate a series of tests against an OpenAPI3 definition that is within your API Builder in Postman.\n\n## Getting Started\n\nRead the documentation on the [Contract Testing Public Workspace](https://postman.postman.co/workspace/0bc7d76d-b582-45ba-b216-5da2c1d174a0) to get started.\n\n## Running this collection\n\nFirstly, make sure you have set up your environment variables by forking [this environment](https://postman.postman.co/workspace/Contract-Test-Generator~0bc7d76d-b582-45ba-b216-5da2c1d174a0/environment/18354885-1125d62a-154a-45a6-8b04-73073e8e4d16). Once completed, this collection can be run using the Postman collection runner or from Newman.\n\n## Support\n\nThis collection is maintained in GitHub by the Postman Solutions Engineering team. Please post an issue directly in [this GitHub project](https://github.com/postman-solutions-eng/postman-contract-test-generator) if you need support.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
   "item": [
     {
       "name": "API Validation",
