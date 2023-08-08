@@ -1341,7 +1341,7 @@
                   "        }\r",
                   "    }\r",
                   "    else {\r",
-                  "        return (Object.keys(responseSchema).length == 0);\r",
+                  "        return (responseSchema === undefined || Object.keys(responseSchema).length == 0);\r",
                   "    }\r",
                   "}\r",
                   "\r",
