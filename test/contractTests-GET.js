@@ -9,7 +9,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
   describe('TEST001 - GET Valid Response', () => {
     let test001MockServer = null
     before('setup mock server', done => {
-      const PORT = 3555
+      const PORT = 3900
 
       test001MockServer = PostmanMockBuilder.create({
         apiVersion: 'TEST001'
@@ -65,11 +65,11 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3555/schema'
+              value: 'http://localhost:3900/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3555'
+              value: 'http://localhost:3900'
             }
           ]
         })
@@ -115,7 +115,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
   describe('TEST002 - GET Missing Required Response Property', () => {
     let test002MockServer = null
     before('setup mock server', done => {
-      const PORT = 3556
+      const PORT = 3901
 
       console.log('Setting up a new mock server')
       test002MockServer = PostmanMockBuilder.create({
@@ -174,11 +174,11 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3556/schema'
+              value: 'http://localhost:3901/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3556'
+              value: 'http://localhost:3901'
             }
           ]
         })
@@ -220,7 +220,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
   describe('TEST003 - GET Undefined Required Response Property', () => {
     let test003MockServer = null
     before('setup mock server', done => {
-      const PORT = 3557
+      const PORT = 3902
 
       console.log('Setting up a new mock server')
       test003MockServer = PostmanMockBuilder.create({
@@ -279,11 +279,11 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3557/schema'
+              value: 'http://localhost:3902/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3557'
+              value: 'http://localhost:3902'
             }
           ]
         })
@@ -325,7 +325,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
   describe('TEST004 - GET Invalid Required Response Property', () => {
     let test004MockServer = null
     before('setup mock server', done => {
-      const PORT = 3558
+      const PORT = 3903
 
       console.log('Setting up a new mock server')
       test004MockServer = PostmanMockBuilder.create({
@@ -384,11 +384,11 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3558/schema'
+              value: 'http://localhost:3903/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3558'
+              value: 'http://localhost:3903'
             }
           ]
         })
@@ -430,7 +430,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
   describe('TEST005 - GET Missing Optional Response Property', () => {
     let test005MockServer = null
     before('setup mock server', done => {
-      const PORT = 3559
+      const PORT = 3904
 
       console.log('Setting up a new mock server')
       test005MockServer = PostmanMockBuilder.create({
@@ -488,11 +488,11 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3559/schema'
+              value: 'http://localhost:3904/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3559'
+              value: 'http://localhost:3904'
             }
           ]
         })
@@ -534,7 +534,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
   describe('TEST006 - GET Undefined Optional Response Property', () => {
     let test006MockServer = null
     before('setup mock server', done => {
-      const PORT = 3560
+      const PORT = 3905
 
       console.log('Setting up a new mock server')
       test006MockServer = PostmanMockBuilder.create({
@@ -593,11 +593,11 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3560/schema'
+              value: 'http://localhost:3905/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3560'
+              value: 'http://localhost:3905'
             }
           ]
         })
@@ -639,7 +639,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
   describe('TEST007 - GET Invalid Optional Response Property', () => {
     let test007MockServer = null
     before('setup mock server', done => {
-      const PORT = 3561
+      const PORT = 3906
 
       console.log('Setting up a new mock server')
       test007MockServer = PostmanMockBuilder.create({
@@ -698,11 +698,11 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3561/schema'
+              value: 'http://localhost:3906/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3561'
+              value: 'http://localhost:3906'
             }
           ]
         })
