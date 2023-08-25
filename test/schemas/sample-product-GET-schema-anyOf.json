@@ -6,16 +6,16 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3555",
+      "url": "http://localhost:3600",
       "description": "Test Server"
     },{
-      "url": "http://localhost:3556",
+      "url": "http://localhost:3601",
       "description": "Test Server"
     },{
-      "url": "http://localhost:3557",
+      "url": "http://localhost:3602",
       "description": "Test Server"
     },{
-      "url": "http://localhost:3558",
+      "url": "http://localhost:3603",
       "description": "Test Server"
     }
   ],

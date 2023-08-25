@@ -6,55 +6,15 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3555",
+      "url": "http://localhost:4000",
       "description": "Test Server"
     },
     {
-      "url": "http://localhost:3556",
+      "url": "http://localhost:4001",
       "description": "Test Server"
     },
     {
-      "url": "http://localhost:3557",
-      "description": "Test Server"
-    },
-    {
-      "url": "http://localhost:3558",
-      "description": "Test Server"
-    },
-    {
-      "url": "http://localhost:3559",
-      "description": "Test Server"
-    },
-    {
-      "url": "http://localhost:3560",
-      "description": "Test Server"
-    },
-    {
-      "url": "http://localhost:3561",
-      "description": "Test Server"
-    },
-    {
-      "url": "http://localhost:3562",
-      "description": "Test Server"
-    },
-    {
-      "url": "http://localhost:3563",
-      "description": "Test Server"
-    },
-    {
-      "url": "http://localhost:3564",
-      "description": "Test Server"
-    },
-    {
-      "url": "http://localhost:3565",
-      "description": "Test Server"
-    },
-    {
-      "url": "http://localhost:3566",
-      "description": "Test Server"
-    },
-    {
-      "url": "http://localhost:3567",
+      "url": "http://localhost:4002",
       "description": "Test Server"
     }
   ],
