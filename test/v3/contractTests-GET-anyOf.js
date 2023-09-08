@@ -9,7 +9,7 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
   describe('TEST001 - GET Full Product Response', () => {
     let test001MockServer = null
     before('setup mock server', done => {
-      const PORT = 3555
+      const PORT = 3600
 
       test001MockServer = PostmanMockBuilder.create({
         apiVersion: 'TEST001'
@@ -65,11 +65,11 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3555/schema'
+              value: 'http://localhost:3600/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3555'
+              value: 'http://localhost:3600'
             }
           ]
         })
@@ -115,7 +115,7 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
   describe('TEST002 - GET Partial Product Response', () => {
     let test001MockServer = null
     before('setup mock server', done => {
-      const PORT = 3556
+      const PORT = 3601
 
       test001MockServer = PostmanMockBuilder.create({
         apiVersion: 'TEST002'
@@ -165,11 +165,11 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3556/schema'
+              value: 'http://localhost:3601/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3556'
+              value: 'http://localhost:3601'
             }
           ]
         })
@@ -215,7 +215,7 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
   describe('TEST003 - GET Neither Product Response', () => {
     let test001MockServer = null
     before('setup mock server', done => {
-      const PORT = 3557
+      const PORT = 3602
 
       test001MockServer = PostmanMockBuilder.create({
         apiVersion: 'TEST003'
@@ -265,11 +265,11 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3557/schema'
+              value: 'http://localhost:3602/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3557'
+              value: 'http://localhost:3602'
             }
           ]
         })
@@ -315,7 +315,7 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
   describe('TEST004 - GET Both Product Response', () => {
     let test001MockServer = null
     before('setup mock server', done => {
-      const PORT = 3558
+      const PORT = 3603
 
       test001MockServer = PostmanMockBuilder.create({
         apiVersion: 'TEST004'
@@ -372,11 +372,11 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3558/schema'
+              value: 'http://localhost:3603/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3558'
+              value: 'http://localhost:3603'
             }
           ]
         })
