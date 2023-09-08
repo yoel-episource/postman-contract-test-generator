@@ -1,0 +1,394 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Products Schema",
+    "version": "1.0.0",
+    "title": "Products and Orders API",
+    "termsOfService": "http://example.com/terms/",
+    "contact": {
+      "email": "jordan@example.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "tyobce1cv8.execute-api.ap-southeast-2.amazonaws.com",
+  "paths": {
+    "/latest/api/products": {
+      "get": {
+        "summary": "Returns a list of products from the database",
+        "description": "Returns a list of products from the database",
+        "operationId": "getProducts",
+        "tags": [
+          "Products"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of current products",
+            "schema": {
+              "$ref": "#/definitions/ProductsList"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new product in the database",
+        "description": "Create a new product in the database",
+        "operationId": "createProduct",
+        "tags": [
+          "Products"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Product",
+            "description": "Product information",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NewProduct"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Product was created successfully",
+            "headers": {
+              "Location": {
+                "type": "string",
+                "description": "The URL of the new product that was just created."
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ViewProduct"
+            },
+            "x-postman-variables": [
+              {
+                "type": "save",
+                "name": "productId",
+                "path": ".id"
+              }
+            ]
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/latest/api/products/{productId}": {
+      
+      "get": {
+        "summary": "Get a product from the database",
+        "description": "Get a product from the database",
+        "operationId": "getProductById",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "productId",
+            "type": "string",
+            "required": true,
+            "description": "product Id to be retrieved",
+            "example": "a1805cde-f34f-4945-9fec-3e096fef4bdd",
+            "x-postman-variables": [
+              {
+                "type": "load",
+                "name": "productId"
+              }
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product retrieved successfully",
+            "schema": {
+              "$ref": "#/definitions/ViewProduct"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Create a new product in the database",
+        "description": "Create a new product in the database",
+        "operationId": "updateProductById",
+        "tags": [
+          "Products"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Product",
+            "description": "Product information",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NewProduct"
+            }
+          },
+          {
+            "in": "path",
+            "name": "productId",
+            "type": "string",
+            "required": true,
+            "description": "product Id to be retrieved",
+            "example": "a1805cde-f34f-4945-9fec-3e096fef4bdd",
+            "x-postman-variables": [
+              {
+                "type": "load",
+                "name": "productId"
+              }
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product was created successfully",
+            "headers": {
+              "Location": {
+                "type": "string",
+                "description": "The URL of the new product that was just updated."
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ViewProduct"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a product from the database",
+        "description": "Delete a product from the database",
+        "operationId": "deleteProduct",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "productId",
+            "type": "string",
+            "required": true,
+            "description": "product Id to be retrieved",
+            "example": "a1805cde-f34f-4945-9fec-3e096fef4bdd",
+            "x-postman-variables": [
+              {
+                "type": "load",
+                "name": "productId"
+              }
+            ]
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Product deleted successfully"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "NewProduct": {
+      "type": "object",
+      "required": [
+        "name",
+        "description",
+        "model",
+        "sku",
+        "cost",
+        "imageUrl"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the Product",
+          "example": "Bose Noise Cancelling Over-Ear Headphones 700 (Black)"
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the Product",
+          "example": "- 11 levels of noise cancelling\n- Google Assistant and Amazon Alexa built in\n- 20 hours of battery life\n"
+        },
+        "model": {
+          "type": "string",
+          "description": "The model number of the Product",
+          "example": "794297-0100"
+        },
+        "sku": {
+          "type": "string",
+          "description": "The SKU of the Product",
+          "example": "394807"
+        },
+        "cost": {
+          "description": "The cost of the Product",
+          "type": "number",
+          "format": "float",
+          "example": 445
+        },
+        "imageUrl": {
+          "description": "The image URL of the Product",
+          "type": "string",
+          "format": "url",
+          "example": "https://cdn.shopify.com/s/files/1/0024/9803/5810/products/394807-Product-0-I_d1664990-4dfb-462f-bb93-2fb469ed7d5d_800x800.jpg"
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "The status code of the error",
+          "example": "OK"
+        },
+        "message": {
+          "type": "string",
+          "description": "The message detailing what happened.",
+          "example": "The service did not work as expected."
+        }
+      }
+    },
+    "ProductsList": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5000,
+      "items": {
+        "$ref": "#/definitions/ViewProduct"
+      }
+    },
+    "ViewProduct": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "description",
+        "model",
+        "sku",
+        "cost",
+        "imageUrl"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "guid",
+          "description": "The ID of the Product",
+          "example": "a1805cde-f34f-4945-9fec-3e096fef4bdd"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the Product",
+          "example": "Bose Noise Cancelling Over-Ear Headphones 700 (Black)"
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the Product",
+          "example": "- 11 levels of noise cancelling\n- Google Assistant and Amazon Alexa built in\n- 20 hours of battery life\n"
+        },
+        "model": {
+          "type": "string",
+          "description": "The model number of the Product",
+          "example": "794297-0100"
+        },
+        "sku": {
+          "type": "string",
+          "description": "The SKU of the Product",
+          "example": "394807"
+        },
+        "cost": {
+          "description": "The cost of the Product",
+          "type": "number",
+          "format": "float",
+          "example": 445
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "The URL to the image of the Product",
+          "format": "url",
+          "example": "https://cdn.shopify.com/s/files/1/0024/9803/5810/products/394807-Product-0-I_d1664990-4dfb-462f-bb93-2fb469ed7d5d_800x800.jpg"
+        }
+      }
+    }
+  }
+}

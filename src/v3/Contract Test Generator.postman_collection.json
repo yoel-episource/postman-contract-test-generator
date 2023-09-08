@@ -1261,7 +1261,7 @@
                   "if(expectedResponse){\r",
                   "    pm.test(`${schemaTest.name} - Has expected response body schema`, function(){\r",
                   "        const Ajv = require('ajv');\r",
-                  "        const ajv = new Ajv({allErrors: true,format: false});\r",
+									"        const ajv = new Ajv({allErrors: true,format: false,nullable: true});\r",
                   "        \r",
                   "        if(pm.response.code == 204 || shouldResponseBeEmpty(expectedResponse)){\r",
                   "            checkForEmptyResponse();\r",

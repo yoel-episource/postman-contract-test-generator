@@ -4,12 +4,14 @@ const fs = require('fs')
 const PostmanMockBuilder = require('@jordanwalsh23/postman-mock-builder')
 
 describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
-  let GET_SCHEMA = './test/v3/schemas/sample-product-GET-schema-anyOf.json'
+  let GET_SCHEMA = './test/v2/schemas/sample-product-GET-schema-anyOf-v2.json'
 
   describe('TEST001 - GET Full Product Response', () => {
     let test001MockServer = null
     before('setup mock server', done => {
       const PORT = 3555
+      let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
+      schema.host = "localhost:" + PORT
 
       test001MockServer = PostmanMockBuilder.create({
         apiVersion: 'TEST001'
@@ -26,7 +28,7 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
+          body: schema
         })
 
       let test001response = [
@@ -60,8 +62,8 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
     it('runs a contract test', done => {
       newman
         .run({
-          collection: require('../../src/v3/Contract Test Generator.postman_collection.json'),
-          environment: require('../../src/v3/Contract Test Environment.postman_environment.json'),
+          collection: require('../../src/v2/Contract Test Generator.postman_collection.json'),
+          environment: require('../../src/v2/Contract Test Environment.postman_environment.json'),
           envVar: [
             {
               key: 'env-schemaUrl',
@@ -116,6 +118,8 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
     let test001MockServer = null
     before('setup mock server', done => {
       const PORT = 3556
+      let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
+      schema.host = "localhost:" + PORT
 
       test001MockServer = PostmanMockBuilder.create({
         apiVersion: 'TEST002'
@@ -132,7 +136,7 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
+          body: schema
         })
 
       let test001response = [
@@ -160,8 +164,8 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
     it('runs a contract test', done => {
       newman
         .run({
-          collection: require('../../src/v3/Contract Test Generator.postman_collection.json'),
-          environment: require('../../src/v3/Contract Test Environment.postman_environment.json'),
+          collection: require('../../src/v2/Contract Test Generator.postman_collection.json'),
+          environment: require('../../src/v2/Contract Test Environment.postman_environment.json'),
           envVar: [
             {
               key: 'env-schemaUrl',
@@ -216,6 +220,8 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
     let test001MockServer = null
     before('setup mock server', done => {
       const PORT = 3557
+      let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
+      schema.host = "localhost:" + PORT
 
       test001MockServer = PostmanMockBuilder.create({
         apiVersion: 'TEST003'
@@ -232,7 +238,7 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
+          body: schema
         })
 
       let test001response = [
@@ -260,8 +266,8 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
     it('runs a contract test', done => {
       newman
         .run({
-          collection: require('../../src/v3/Contract Test Generator.postman_collection.json'),
-          environment: require('../../src/v3/Contract Test Environment.postman_environment.json'),
+          collection: require('../../src/v2/Contract Test Generator.postman_collection.json'),
+          environment: require('../../src/v2/Contract Test Environment.postman_environment.json'),
           envVar: [
             {
               key: 'env-schemaUrl',
@@ -316,6 +322,8 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
     let test001MockServer = null
     before('setup mock server', done => {
       const PORT = 3558
+      let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
+      schema.host = "localhost:" + PORT
 
       test001MockServer = PostmanMockBuilder.create({
         apiVersion: 'TEST004'
@@ -332,7 +340,7 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
+          body: schema
         })
 
       let test001response = [
@@ -367,8 +375,8 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
     it('runs a contract test', done => {
       newman
         .run({
-          collection: require('../../src/v3/Contract Test Generator.postman_collection.json'),
-          environment: require('../../src/v3/Contract Test Environment.postman_environment.json'),
+          collection: require('../../src/v2/Contract Test Generator.postman_collection.json'),
+          environment: require('../../src/v2/Contract Test Environment.postman_environment.json'),
           envVar: [
             {
               key: 'env-schemaUrl',
