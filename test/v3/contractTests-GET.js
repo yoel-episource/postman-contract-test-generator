@@ -4,7 +4,7 @@ const fs = require('fs')
 const PostmanMockBuilder = require('@jordanwalsh23/postman-mock-builder')
 
 describe('Postman Contract Test Suite - GET Requests', () => {
-  let GET_SCHEMA = './test/schemas/sample-product-GET-schema.json'
+  let GET_SCHEMA = './test/v3/schemas/sample-product-GET-schema.json'
 
   describe('TEST001 - GET Valid Response', () => {
     let test001MockServer = null
@@ -60,8 +60,8 @@ describe('Postman Contract Test Suite - GET Requests', () => {
     it('runs a contract test', done => {
       newman
         .run({
-          collection: require('../src/Contract Test Generator.postman_collection.json'),
-          environment: require('../src/Contract Test Environment.postman_environment.json'),
+          collection: require('../../src/v3/Contract Test Generator.postman_collection.json'),
+          environment: require('../../src/v3/Contract Test Environment.postman_environment.json'),
           envVar: [
             {
               key: 'env-schemaUrl',
@@ -169,8 +169,8 @@ describe('Postman Contract Test Suite - GET Requests', () => {
     it('runs a contract test', done => {
       newman
         .run({
-          collection: require('../src/Contract Test Generator.postman_collection.json'),
-          environment: require('../src/Contract Test Environment.postman_environment.json'),
+          collection: require('../../src/v3/Contract Test Generator.postman_collection.json'),
+          environment: require('../../src/v3/Contract Test Environment.postman_environment.json'),
           envVar: [
             {
               key: 'env-schemaUrl',
@@ -274,8 +274,8 @@ describe('Postman Contract Test Suite - GET Requests', () => {
     it('runs a contract test', done => {
       newman
         .run({
-          collection: require('../src/Contract Test Generator.postman_collection.json'),
-          environment: require('../src/Contract Test Environment.postman_environment.json'),
+          collection: require('../../src/v3/Contract Test Generator.postman_collection.json'),
+          environment: require('../../src/v3/Contract Test Environment.postman_environment.json'),
           envVar: [
             {
               key: 'env-schemaUrl',
@@ -379,8 +379,8 @@ describe('Postman Contract Test Suite - GET Requests', () => {
     it('runs a contract test', done => {
       newman
         .run({
-          collection: require('../src/Contract Test Generator.postman_collection.json'),
-          environment: require('../src/Contract Test Environment.postman_environment.json'),
+          collection: require('../../src/v3/Contract Test Generator.postman_collection.json'),
+          environment: require('../../src/v3/Contract Test Environment.postman_environment.json'),
           envVar: [
             {
               key: 'env-schemaUrl',
@@ -483,8 +483,8 @@ describe('Postman Contract Test Suite - GET Requests', () => {
     it('runs a contract test', done => {
       newman
         .run({
-          collection: require('../src/Contract Test Generator.postman_collection.json'),
-          environment: require('../src/Contract Test Environment.postman_environment.json'),
+          collection: require('../../src/v3/Contract Test Generator.postman_collection.json'),
+          environment: require('../../src/v3/Contract Test Environment.postman_environment.json'),
           envVar: [
             {
               key: 'env-schemaUrl',
@@ -588,8 +588,8 @@ describe('Postman Contract Test Suite - GET Requests', () => {
     it('runs a contract test', done => {
       newman
         .run({
-          collection: require('../src/Contract Test Generator.postman_collection.json'),
-          environment: require('../src/Contract Test Environment.postman_environment.json'),
+          collection: require('../../src/v3/Contract Test Generator.postman_collection.json'),
+          environment: require('../../src/v3/Contract Test Environment.postman_environment.json'),
           envVar: [
             {
               key: 'env-schemaUrl',
@@ -693,8 +693,8 @@ describe('Postman Contract Test Suite - GET Requests', () => {
     it('runs a contract test', done => {
       newman
         .run({
-          collection: require('../src/Contract Test Generator.postman_collection.json'),
-          environment: require('../src/Contract Test Environment.postman_environment.json'),
+          collection: require('../../src/v3/Contract Test Generator.postman_collection.json'),
+          environment: require('../../src/v3/Contract Test Environment.postman_environment.json'),
           envVar: [
             {
               key: 'env-schemaUrl',

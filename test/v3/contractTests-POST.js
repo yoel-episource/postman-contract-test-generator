@@ -4,7 +4,7 @@ const fs = require('fs')
 const PostmanMockBuilder = require('@jordanwalsh23/postman-mock-builder')
 
 describe('Postman Contract Test Suite - POST Requests', () => {
-  let POST_SCHEMA = './test/schemas/sample-product-POST-schema.json'
+  let POST_SCHEMA = './test/v3/schemas/sample-product-POST-schema.json'
 
   describe('TEST001 - POST Valid Response', () => {
     let test001MockServer = null
@@ -160,8 +160,8 @@ describe('Postman Contract Test Suite - POST Requests', () => {
     it('runs a contract test', done => {
       newman
         .run({
-          collection: require('../src/Contract Test Generator.postman_collection.json'),
-          environment: require('../src/Contract Test Environment.postman_environment.json'),
+          collection: require('../../src/v3/Contract Test Generator.postman_collection.json'),
+          environment: require('../../src/v3/Contract Test Environment.postman_environment.json'),
           envVar: [
             {
               key: 'env-schemaUrl',
