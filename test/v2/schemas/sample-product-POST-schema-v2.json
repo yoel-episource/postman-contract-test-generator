@@ -42,11 +42,8 @@
           {
             "in": "header",
             "name": "x-mock-match-request-body",
-            "schema" : {
-              "description": "The postman mock matching request header",
-              "type": "string",
-              "example": "true"
-            },
+            "example" : "true",
+            "type": "string",
             "required": true
           }
         ],
