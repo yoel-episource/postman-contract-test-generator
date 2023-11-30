@@ -234,6 +234,13 @@
 											"key": "workspace",
 											"value": "{{env-workspaceId}}"
 										}
+									],
+									"header": [
+										{
+											"key": "accept",
+											"value": "application/vnd.api.v10+json",
+											"type": "text"
+										}
 									]
 								}
 							},
@@ -313,6 +320,13 @@
 											"disabled": true
 										}
 									],
+									"header": [
+										{
+											"key": "accept",
+											"value": "application/vnd.api.v10+json",
+											"type": "text"
+										}
+									],
 									"variable": [
 										{
 											"key": "apiId",
@@ -384,6 +398,13 @@
 											"key": null,
 											"value": "",
 											"disabled": true
+										}
+									],
+									"header": [
+										{
+											"key": "accept",
+											"value": "application/vnd.api.v10+json",
+											"type": "text"
 										}
 									],
 									"variable": [
@@ -473,6 +494,13 @@
 										":apiVersionId",
 										"schemas",
 										":schemaId"
+									],
+									"header" : [
+										{
+											"key": "accept",
+											"value": "application/vnd.api.v10+json",
+											"type": "text"
+										}
 									],
 									"variable": [
 										{

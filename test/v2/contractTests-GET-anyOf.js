@@ -161,7 +161,6 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
         })
 
       test001MockServer.start(PORT)
-      test001MockServer.exportCollection("exports/test-collection.json")
       done()
     })
 
