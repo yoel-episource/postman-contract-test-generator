@@ -9,7 +9,7 @@ describe('Postman Contract Test Suite - GET OneOf Requests', () => {
   describe('TEST001 - GET Full Product Response', () => {
     let test001MockServer = null
     before('setup mock server', done => {
-      const PORT = 3555
+      const PORT = 4555
       let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
       schema.host = "localhost:" + PORT
 
@@ -67,11 +67,11 @@ describe('Postman Contract Test Suite - GET OneOf Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3555/schema'
+              value: 'http://localhost:4555/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3555'
+              value: 'http://localhost:4555'
             }
           ]
         })
@@ -117,7 +117,7 @@ describe('Postman Contract Test Suite - GET OneOf Requests', () => {
   describe('TEST002 - GET Partial Product Response', () => {
     let test001MockServer = null
     before('setup mock server', done => {
-      const PORT = 3556
+      const PORT = 4556
       let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
       schema.host = "localhost:" + PORT
 
@@ -169,11 +169,11 @@ describe('Postman Contract Test Suite - GET OneOf Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3556/schema'
+              value: 'http://localhost:4556/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3556'
+              value: 'http://localhost:4556'
             }
           ]
         })
@@ -219,7 +219,7 @@ describe('Postman Contract Test Suite - GET OneOf Requests', () => {
   describe('TEST003 - GET Neither Product Response', () => {
     let test001MockServer = null
     before('setup mock server', done => {
-      const PORT = 3557
+      const PORT = 4557
       let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
       schema.host = "localhost:" + PORT
 
@@ -271,11 +271,11 @@ describe('Postman Contract Test Suite - GET OneOf Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3557/schema'
+              value: 'http://localhost:4557/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3557'
+              value: 'http://localhost:4557'
             }
           ]
         })
@@ -321,7 +321,7 @@ describe('Postman Contract Test Suite - GET OneOf Requests', () => {
   describe('TEST004 - GET Both Product Response', () => {
     let test001MockServer = null
     before('setup mock server', done => {
-      const PORT = 3558
+      const PORT = 4558
       let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
       schema.host = "localhost:" + PORT
 
@@ -380,11 +380,11 @@ describe('Postman Contract Test Suite - GET OneOf Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3558/schema'
+              value: 'http://localhost:4558/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3558'
+              value: 'http://localhost:4558'
             }
           ]
         })

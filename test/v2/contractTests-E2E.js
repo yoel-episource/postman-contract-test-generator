@@ -9,7 +9,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
   describe('TEST001 - GET Valid Response', () => {
     let test001MockServer = null
     before('setup mock server', done => {
-      const PORT = 3555
+      const PORT = 1555
 
       test001MockServer = PostmanMockBuilder.create({
         apiVersion: 'TEST001'
@@ -41,7 +41,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3555/schema'
+              value: 'http://localhost:1555/schema'
             },
             {
               key: 'env-server',

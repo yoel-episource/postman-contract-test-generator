@@ -9,7 +9,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
   describe('TEST001 - GET Valid Response', () => {
     let test001MockServer = null
     before('setup mock server', done => {
-      const PORT = 3555
+      const PORT = 5555
 
       let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
       schema.host = "localhost:" + PORT
@@ -68,11 +68,11 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3555/schema'
+              value: 'http://localhost:5555/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3555'
+              value: 'http://localhost:5555'
             }
           ]
         })
@@ -118,7 +118,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
   describe('TEST002 - GET Missing Required Response Property', () => {
     let test002MockServer = null
     before('setup mock server', done => {
-      const PORT = 3556
+      const PORT = 5556
 
       let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
       schema.host = "localhost:" + PORT
@@ -180,11 +180,11 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3556/schema'
+              value: 'http://localhost:5556/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3556'
+              value: 'http://localhost:5556'
             }
           ]
         })
@@ -226,7 +226,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
   describe('TEST003 - GET Undefined Required Response Property', () => {
     let test003MockServer = null
     before('setup mock server', done => {
-      const PORT = 3557
+      const PORT = 5557
 
       let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
       schema.host = "localhost:" + PORT
@@ -288,11 +288,11 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3557/schema'
+              value: 'http://localhost:5557/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3557'
+              value: 'http://localhost:5557'
             }
           ]
         })
@@ -334,7 +334,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
   describe('TEST004 - GET Invalid Required Response Property', () => {
     let test004MockServer = null
     before('setup mock server', done => {
-      const PORT = 3558
+      const PORT = 5558
 
       let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
       schema.host = "localhost:" + PORT
@@ -396,11 +396,11 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3558/schema'
+              value: 'http://localhost:5558/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3558'
+              value: 'http://localhost:5558'
             }
           ]
         })
@@ -442,7 +442,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
   describe('TEST005 - GET Missing Optional Response Property', () => {
     let test005MockServer = null
     before('setup mock server', done => {
-      const PORT = 3559
+      const PORT = 5559
 
       let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
       schema.host = "localhost:" + PORT
@@ -503,11 +503,11 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3559/schema'
+              value: 'http://localhost:5559/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3559'
+              value: 'http://localhost:5559'
             }
           ]
         })
@@ -549,7 +549,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
   describe('TEST006 - GET Undefined Optional Response Property', () => {
     let test006MockServer = null
     before('setup mock server', done => {
-      const PORT = 3560
+      const PORT = 5560
 
       let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
       schema.host = "localhost:" + PORT
@@ -611,11 +611,11 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3560/schema'
+              value: 'http://localhost:5560/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3560'
+              value: 'http://localhost:5560'
             }
           ]
         })
@@ -657,7 +657,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
   describe('TEST007 - GET Invalid Optional Response Property', () => {
     let test007MockServer = null
     before('setup mock server', done => {
-      const PORT = 3561
+      const PORT = 5561
       let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString())
       schema.host = "localhost:" + PORT
 
@@ -718,11 +718,11 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3561/schema'
+              value: 'http://localhost:5561/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3561'
+              value: 'http://localhost:5561'
             }
           ]
         })

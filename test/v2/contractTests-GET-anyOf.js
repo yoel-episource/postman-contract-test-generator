@@ -154,10 +154,14 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
         })
         .addResponse({
           status: 200,
+          headers: {
+            'Content-Type': 'application/json'
+          },
           body: test001response
         })
 
       test001MockServer.start(PORT)
+      test001MockServer.exportCollection("exports/test-collection.json")
       done()
     })
 

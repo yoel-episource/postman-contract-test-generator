@@ -1,0 +1,367 @@
+{
+  "collection": {
+    "info": {
+      "name": "Contract Tests [TEST002]",
+      "description": "Contract Tests [TEST002]",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Setup",
+        "item": [
+          {
+            "name": "Set Variables",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "//Used to differentiate between individual tests and tests run using the collection runner.",
+                    "let testResults = {",
+                    "  id: pm.variables.replaceIn('{{$guid}}'),",
+                    "  createdDate: Date.now(),",
+                    "  apiVersion: \"TEST002\",",
+                    "  states: {}",
+                    "};",
+                    "pm.variables.set(\"testResults\", JSON.stringify(testResults));"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "https://postman-echo.com/get",
+                "protocol": "https",
+                "host": [
+                  "postman-echo",
+                  "com"
+                ],
+                "path": [
+                  "get"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Return a partial product schema",
+        "item": [
+          {
+            "name": "GET /api/products",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "x-mock-response-name",
+                  "value": "GET /api/products a8eba04d-f171-4995-9dd9-1cf8b3139b5d",
+                  "type": "text"
+                }
+              ],
+              "url": {
+                "raw": "/api/products",
+                "protocol": "",
+                "host": "{{baseUrl}}",
+                "path": [
+                  "",
+                  "api",
+                  "products"
+                ]
+              },
+              "body": {
+                "mode": "raw",
+                "raw": "\"\"",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              }
+            },
+            "response": [
+              {
+                "name": "GET /api/products a8eba04d-f171-4995-9dd9-1cf8b3139b5d",
+                "originalRequest": {
+                  "method": "GET",
+                  "header": [
+                    {
+                      "key": "x-mock-response-name",
+                      "value": "GET /api/products a8eba04d-f171-4995-9dd9-1cf8b3139b5d",
+                      "type": "text"
+                    }
+                  ],
+                  "url": {
+                    "raw": "/api/products",
+                    "host": [
+                      "{{baseUrl}}"
+                    ],
+                    "path": [
+                      "",
+                      "api",
+                      "products"
+                    ]
+                  },
+                  "body": {
+                    "mode": "raw",
+                    "raw": "\"\"",
+                    "options": {
+                      "raw": {
+                        "language": "json"
+                      }
+                    }
+                  }
+                },
+                "code": 200,
+                "status": "OK",
+                "_postman_previewlanguage": "json",
+                "body": "[{\"test\":\"test\"}]",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "let test = \"\";",
+                    "let passed = null;",
+                    "",
+                    "let requestDetails = {\"request\":\"GET /api/products\",\"tests\":[]};",
+                    "",
+                    "//Validate status code matches expected status code",
+                    "test = 'Status code is 200';",
+                    "passed = false;",
+                    "pm.test(test, () => {",
+                    "    try {",
+                    "        pm.response.to.have.status(200);",
+                    "        passed = true;",
+                    "    } finally {",
+                    "        requestDetails.tests.push({",
+                    "            test: test,",
+                    "            passed: passed,",
+                    "            datetime: Date.now()",
+                    "        })",
+                    "    }",
+                    "});",
+                    "var Ajv = require('ajv'),",
+                    "ajv = new Ajv({logger: console});",
+                    "let schema = {\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"test\":{\"type\":\"string\"}},\"required\":[\"test\"]}};",
+                    "",
+                    "//Validate response schema matches expected schema",
+                    "test = 'Validate schema';",
+                    "passed = false;",
+                    "pm.test(test, () => {",
+                    "    ",
+                    "    try {",
+                    "        var data = pm.response.json();",
+                    "        pm.expect(ajv.validate(schema, data)).to.be.true;",
+                    "        passed = true;",
+                    "    } finally {",
+                    "        requestDetails.tests.push({",
+                    "            test: test,",
+                    "            passed: passed,",
+                    "            datetime: Date.now()",
+                    "        })",
+                    "    }",
+                    "});",
+                    "",
+                    "if(pm.variables.get(\"testResults\")) {",
+                    "    let testResults = JSON.parse(pm.variables.get(\"testResults\"));",
+                    "",
+                    "    if(!testResults.states['Return a partial product schema']) {",
+                    "        testResults.states['Return a partial product schema'] = [];",
+                    "    }",
+                    "",
+                    "    testResults.states['Return a partial product schema'].push(requestDetails);",
+                    "    pm.variables.set(\"testResults\", JSON.stringify(testResults))",
+                    "    console.log(\"testResults\", testResults)",
+                    "}"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ]
+          }
+        ],
+        "event": [
+          {
+            "listen": "prerequest",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "//Expected State: Return a partial product schema",
+                "//To be popuplated by the API producer."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "API Schema",
+        "item": [
+          {
+            "name": "GET /schema",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "x-mock-response-name",
+                  "value": "GET /schema 5d61f82d-cf93-4e72-a91c-c52709aef444",
+                  "type": "text"
+                }
+              ],
+              "url": {
+                "raw": "/schema",
+                "protocol": "",
+                "host": "{{baseUrl}}",
+                "path": [
+                  "",
+                  "schema"
+                ]
+              },
+              "body": {
+                "mode": "raw",
+                "raw": "\"\"",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              }
+            },
+            "response": [
+              {
+                "name": "GET /schema 5d61f82d-cf93-4e72-a91c-c52709aef444",
+                "originalRequest": {
+                  "method": "GET",
+                  "header": [
+                    {
+                      "key": "x-mock-response-name",
+                      "value": "GET /schema 5d61f82d-cf93-4e72-a91c-c52709aef444",
+                      "type": "text"
+                    }
+                  ],
+                  "url": {
+                    "raw": "/schema",
+                    "host": [
+                      "{{baseUrl}}"
+                    ],
+                    "path": [
+                      "",
+                      "schema"
+                    ]
+                  },
+                  "body": {
+                    "mode": "raw",
+                    "raw": "\"\"",
+                    "options": {
+                      "raw": {
+                        "language": "json"
+                      }
+                    }
+                  }
+                },
+                "code": 200,
+                "status": "OK",
+                "_postman_previewlanguage": "json",
+                "body": "{\"swagger\":\"2.0\",\"info\":{\"description\":\"This is a sample schema.\",\"version\":\"1.0.0\",\"title\":\"Sample Schema\",\"termsOfService\":\"http://example.com/terms/\",\"contact\":{\"email\":\"jordan@example.com\"},\"license\":{\"name\":\"Apache 2.0\",\"url\":\"http://www.apache.org/licenses/LICENSE-2.0.html\"}},\"schemes\":[\"http\"],\"host\":\"localhost:3556\",\"paths\":{\"/api/products\":{\"get\":{\"summary\":\"Returns a list of products from the database\",\"description\":\"\",\"operationId\":\"getProducts\",\"produces\":[\"application/json\"],\"responses\":{\"200\":{\"description\":\"A list of current products\",\"schema\":{\"$ref\":\"#/definitions/ProductsList\"}}}}}},\"definitions\":{\"ProductsList\":{\"type\":\"array\",\"items\":{\"$ref\":\"#/definitions/ViewProduct\"}},\"ViewProduct\":{\"anyOf\":[{\"type\":\"object\",\"required\":[\"test\"],\"properties\":{\"test\":{\"type\":\"string\",\"example\":\"test\",\"description\":\"Test field for testing\"}}},{\"$ref\":\"#/definitions/ViewProductSchema\"}]},\"ViewProductSchema\":{\"type\":\"object\",\"required\":[\"id\",\"name\",\"description\",\"model\",\"sku\",\"cost\"],\"properties\":{\"id\":{\"type\":\"string\",\"format\":\"guid\",\"description\":\"The ID of the Product\",\"example\":\"a1805cde-f34f-4945-9fec-3e096fef4bdd\"},\"name\":{\"type\":\"string\",\"description\":\"The name of the Product\",\"example\":\"Bose Noise Cancelling Over-Ear Headphones 700 (Black)\",\"minLength\":3},\"description\":{\"type\":\"string\",\"description\":\"The description of the Product\",\"example\":\"- 11 levels of noise cancelling\\n- Google Assistant and Amazon Alexa built in\\n- 20 hours of battery life\\n\"},\"model\":{\"type\":\"string\",\"description\":\"The model number of the Product\",\"example\":\"794297-0100\"},\"sku\":{\"type\":\"string\",\"description\":\"The SKU of the Product\",\"example\":\"394807\"},\"cost\":{\"description\":\"The cost of the Product\",\"type\":\"number\",\"format\":\"float\",\"example\":445},\"imageUrl\":{\"type\":\"string\",\"description\":\"The URL to the image of the Product\",\"format\":\"url\",\"minLength\":3,\"example\":\"https://cdn.shopify.com/s/files/1/0024/9803/5810/products/394807-Product-0-I_d1664990-4dfb-462f-bb93-2fb469ed7d5d_800x800.jpg\"}}}}}",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "let test = \"\";",
+                    "let passed = null;",
+                    "",
+                    "let requestDetails = {\"request\":\"GET /schema\",\"tests\":[]};",
+                    "",
+                    "//Validate status code matches expected status code",
+                    "test = 'Status code is 200';",
+                    "passed = false;",
+                    "pm.test(test, () => {",
+                    "    try {",
+                    "        pm.response.to.have.status(200);",
+                    "        passed = true;",
+                    "    } finally {",
+                    "        requestDetails.tests.push({",
+                    "            test: test,",
+                    "            passed: passed,",
+                    "            datetime: Date.now()",
+                    "        })",
+                    "    }",
+                    "});",
+                    "var Ajv = require('ajv'),",
+                    "ajv = new Ajv({logger: console});",
+                    "let schema = {\"type\":\"object\",\"properties\":{\"swagger\":{\"type\":\"string\"},\"info\":{\"type\":\"object\",\"properties\":{\"description\":{\"type\":\"string\"},\"version\":{\"type\":\"string\"},\"title\":{\"type\":\"string\"},\"termsOfService\":{\"type\":\"string\"},\"contact\":{\"type\":\"object\",\"properties\":{\"email\":{\"type\":\"string\"}},\"required\":[\"email\"]},\"license\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"url\":{\"type\":\"string\"}},\"required\":[\"name\",\"url\"]}},\"required\":[\"description\",\"version\",\"title\",\"termsOfService\",\"contact\",\"license\"]},\"schemes\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"host\":{\"type\":\"string\"},\"paths\":{\"type\":\"object\",\"properties\":{\"/api/products\":{\"type\":\"object\",\"properties\":{\"get\":{\"type\":\"object\",\"properties\":{\"summary\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"operationId\":{\"type\":\"string\"},\"produces\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"responses\":{\"type\":\"object\",\"properties\":{\"200\":{\"type\":\"object\",\"properties\":{\"description\":{\"type\":\"string\"},\"schema\":{\"type\":\"object\",\"properties\":{\"$ref\":{\"type\":\"string\"}},\"required\":[\"$ref\"]}},\"required\":[\"description\",\"schema\"]}},\"required\":[\"200\"]}},\"required\":[\"summary\",\"description\",\"operationId\",\"produces\",\"responses\"]}},\"required\":[\"get\"]}},\"required\":[\"/api/products\"]},\"definitions\":{\"type\":\"object\",\"properties\":{\"ProductsList\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\"},\"items\":{\"type\":\"object\",\"properties\":{\"$ref\":{\"type\":\"string\"}},\"required\":[\"$ref\"]}},\"required\":[\"type\",\"items\"]},\"ViewProduct\":{\"type\":\"object\",\"properties\":{\"anyOf\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\"},\"required\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"properties\":{\"type\":\"object\",\"properties\":{\"test\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\"},\"example\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"}},\"required\":[\"type\",\"example\",\"description\"]}},\"required\":[\"test\"]},\"$ref\":{\"type\":\"string\"}}}}},\"required\":[\"anyOf\"]},\"ViewProductSchema\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\"},\"required\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"properties\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\"},\"format\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"example\":{\"type\":\"string\"}},\"required\":[\"type\",\"format\",\"description\",\"example\"]},\"name\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"example\":{\"type\":\"string\"},\"minLength\":{\"type\":\"integer\"}},\"required\":[\"type\",\"description\",\"example\",\"minLength\"]},\"description\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"example\":{\"type\":\"string\"}},\"required\":[\"type\",\"description\",\"example\"]},\"model\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"example\":{\"type\":\"string\"}},\"required\":[\"type\",\"description\",\"example\"]},\"sku\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"example\":{\"type\":\"string\"}},\"required\":[\"type\",\"description\",\"example\"]},\"cost\":{\"type\":\"object\",\"properties\":{\"description\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"},\"format\":{\"type\":\"string\"},\"example\":{\"type\":\"integer\"}},\"required\":[\"description\",\"type\",\"format\",\"example\"]},\"imageUrl\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"format\":{\"type\":\"string\"},\"minLength\":{\"type\":\"integer\"},\"example\":{\"type\":\"string\"}},\"required\":[\"type\",\"description\",\"format\",\"minLength\",\"example\"]}},\"required\":[\"id\",\"name\",\"description\",\"model\",\"sku\",\"cost\",\"imageUrl\"]}},\"required\":[\"type\",\"required\",\"properties\"]}},\"required\":[\"ProductsList\",\"ViewProduct\",\"ViewProductSchema\"]}},\"required\":[\"swagger\",\"info\",\"schemes\",\"host\",\"paths\",\"definitions\"]};",
+                    "",
+                    "//Validate response schema matches expected schema",
+                    "test = 'Validate schema';",
+                    "passed = false;",
+                    "pm.test(test, () => {",
+                    "    ",
+                    "    try {",
+                    "        var data = pm.response.json();",
+                    "        pm.expect(ajv.validate(schema, data)).to.be.true;",
+                    "        passed = true;",
+                    "    } finally {",
+                    "        requestDetails.tests.push({",
+                    "            test: test,",
+                    "            passed: passed,",
+                    "            datetime: Date.now()",
+                    "        })",
+                    "    }",
+                    "});",
+                    "",
+                    "if(pm.variables.get(\"testResults\")) {",
+                    "    let testResults = JSON.parse(pm.variables.get(\"testResults\"));",
+                    "",
+                    "    if(!testResults.states['API Schema']) {",
+                    "        testResults.states['API Schema'] = [];",
+                    "    }",
+                    "",
+                    "    testResults.states['API Schema'].push(requestDetails);",
+                    "    pm.variables.set(\"testResults\", JSON.stringify(testResults))",
+                    "    console.log(\"testResults\", testResults)",
+                    "}"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ]
+          }
+        ],
+        "event": [
+          {
+            "listen": "prerequest",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "//Expected State: API Schema",
+                "//To be popuplated by the API producer."
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
