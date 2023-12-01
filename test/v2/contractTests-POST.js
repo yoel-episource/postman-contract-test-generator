@@ -9,7 +9,7 @@ describe('Postman Contract Test Suite - POST Requests', () => {
   describe('TEST001 - POST Valid Response', () => {
     let test001MockServer = null
     before('setup mock server', done => {
-      const PORT = 3555
+      const PORT = 6555
 
       let schema = JSON.parse(fs.readFileSync(POST_SCHEMA, 'utf-8').toString())
       schema.host = "localhost:" + PORT
@@ -166,11 +166,11 @@ describe('Postman Contract Test Suite - POST Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3555/schema'
+              value: 'http://localhost:6555/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3555'
+              value: 'http://localhost:6555'
             }
           ]
         })

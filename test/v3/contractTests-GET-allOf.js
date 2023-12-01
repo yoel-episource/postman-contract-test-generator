@@ -9,7 +9,7 @@ describe('Postman Contract Test Suite - GET AllOf Requests', () => {
   describe('TEST001 - GET Valid Response', () => {
     let test001MockServer = null
     before('setup mock server', done => {
-      const PORT = 3555
+      const PORT = 2555
 
       test001MockServer = PostmanMockBuilder.create({
         apiVersion: 'TEST001'
@@ -66,11 +66,11 @@ describe('Postman Contract Test Suite - GET AllOf Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3555/schema'
+              value: 'http://localhost:2555/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3555'
+              value: 'http://localhost:2555'
             }
           ]
         })
@@ -116,7 +116,7 @@ describe('Postman Contract Test Suite - GET AllOf Requests', () => {
   describe('TEST002 - GET Invalid Response', () => {
     let test001MockServer = null
     before('setup mock server', done => {
-      const PORT = 3556
+      const PORT = 2556
 
       test001MockServer = PostmanMockBuilder.create({
         apiVersion: 'TEST002'
@@ -172,11 +172,11 @@ describe('Postman Contract Test Suite - GET AllOf Requests', () => {
           envVar: [
             {
               key: 'env-schemaUrl',
-              value: 'http://localhost:3556/schema'
+              value: 'http://localhost:2556/schema'
             },
             {
               key: 'env-server',
-              value: 'http://localhost:3556'
+              value: 'http://localhost:2556'
             }
           ]
         })

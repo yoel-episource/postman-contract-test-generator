@@ -154,6 +154,9 @@ describe('Postman Contract Test Suite - GET AnyOf Requests', () => {
         })
         .addResponse({
           status: 200,
+          headers: {
+            'Content-Type': 'application/json'
+          },
           body: test001response
         })
 
