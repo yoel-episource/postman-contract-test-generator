@@ -1,3 +1,4 @@
 .history
 node_modules
+src/v*/OASv*.postman_environment.json
 .DS_Store

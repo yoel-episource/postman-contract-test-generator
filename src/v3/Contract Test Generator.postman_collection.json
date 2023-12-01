@@ -236,7 +236,14 @@
                       "key": "workspace",
                       "value": "{{env-workspaceId}}"
                     }
-                  ]
+                  ],
+                  "header" : [
+										{
+											"key": "accept",
+											"value": "application/vnd.api.v10+json",
+											"type": "text"
+										}
+									]
                 }
               },
               "response": []
@@ -320,7 +327,14 @@
                       "key": "apiId",
                       "value": "{{coll-apiId}}"
                     }
-                  ]
+                  ],
+                  "header" : [
+										{
+											"key": "accept",
+											"value": "application/vnd.api.v10+json",
+											"type": "text"
+										}
+									]
                 }
               },
               "response": []
@@ -397,7 +411,14 @@
                       "key": "versionId",
                       "value": "{{coll-versionId}}"
                     }
-                  ]
+                  ],
+                  "header" : [
+										{
+											"key": "accept",
+											"value": "application/vnd.api.v10+json",
+											"type": "text"
+										}
+									]
                 }
               },
               "response": []
@@ -487,7 +508,14 @@
                       "key": "schemaId",
                       "value": "{{coll-schemaId}}"
                     }
-                  ]
+                  ],
+                  "header" : [
+										{
+											"key": "accept",
+											"value": "application/vnd.api.v10+json",
+											"type": "text"
+										}
+									]
                 }
               },
               "response": []
